@@ -8,11 +8,13 @@ public class Problem2_SortArrayWithStreamAPI {
         String[] arrStr = in.nextLine().split(" ");
         String order = in.nextLine();
 
-        if (order.equals("Ascending")){
-            Arrays.stream(arrStr).sorted((s1,s2) -> s1.compareTo(s2)).forEach(x -> System.out.print(x + " "));
-        }else {
-            Arrays.stream(arrStr).sorted((s1,s2) -> s2.compareTo(s1)).forEach(x -> System.out.print(x + " "));
-        }
+        Arrays.stream(arrStr).sorted((s1, s2) -> {
+            if (order.equals("Ascending")) {
+                return s1.compareTo(s2);
+            } else {
+                return s2.compareTo(s1);
+            }
+        }).forEach(x -> System.out.print(x + " "));
 
     }
 }
