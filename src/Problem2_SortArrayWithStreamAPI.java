@@ -8,7 +8,9 @@ public class Problem2_SortArrayWithStreamAPI {
         String[] arrStr = in.nextLine().split(" ");
         String order = in.nextLine();
 
-        Arrays.stream(arrStr).sorted((s1, s2) -> {
+        Integer[] arrInt = Arrays.stream(arrStr).map(Integer::parseInt).toArray(Integer[]::new);
+
+        Arrays.stream(arrInt).sorted((s1, s2) -> {
             if (order.equals("Ascending")) {
                 return s1.compareTo(s2);
             } else {
@@ -17,4 +19,5 @@ public class Problem2_SortArrayWithStreamAPI {
         }).forEach(x -> System.out.print(x + " "));
 
     }
+
 }
